@@ -27,6 +27,34 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
+    {
+      resolve: `gatsby-source-wordpress`,
+      options: {
+        // Specify the URL of the WordPress source
+        baseUrl: `cms.maximilian-stock.de`,
+        protocol: `http`,
+        // Indicates if a site is hosted on WordPress.com
+        hostingWPCOM: false,
+        // Specify which URL structures to fetch
+        includedRoutes: [
+          '**/posts',
+          '**/tags',
+          '**/categories',
+          '**/pages',
+          '**/media',
+        ],
+        plugins: [
+          {
+            resolve: `gatsby-wordpress-inline-images`,
+            options:
+            {
+              baseUrl: `cms.maximilian-stock.de`,
+              protocol: `http`
+            }
+          }
+        ]
+      }
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
