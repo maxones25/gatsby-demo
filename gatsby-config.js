@@ -36,12 +36,15 @@ module.exports = {
         // Indicates if a site is hosted on WordPress.com
         hostingWPCOM: false,
         // Specify which URL structures to fetch
+        useACF: true,
+        keepMediaSizes: true,
         includedRoutes: [
           '**/posts',
           '**/tags',
           '**/categories',
           '**/pages',
           '**/media',
+          '**/users',
         ],
         plugins: [
           {
